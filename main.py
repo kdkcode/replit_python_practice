@@ -1,7 +1,100 @@
+#이진탐색알고리즘
+#순차탐색 : 리스트 안에 있는 특정한 데이터를 찾기 위해 앞에서부터 확인
+#이진탐색 : 탐색 범위를 절반씩 좁혀가며 데이터를 탐색하는 방법
+
+#재귀적 구현
+
+def binary_search(array,target,start,end):
+  if start>end:
+    return None
+  mid = (start+end)//2
+
+  if array[mid] == target:
+    return mid
+  
+  elif array[mid]>target:
+    return binary_search(array,target,start,mid-1)
+  
+  else:
+    return binary_search(array,target,mid+1,end)
+
+  
+n,target=list(map(int,input().split()))
+array=list(map(int,input().split()))
+
+result=binary_search(array,target,0,n-1)
+if result==None:
+  print('원소가 존재하지 않습니다.')
+
+else:
+  print(result+1)
 
 
 
 
+
+
+
+
+
+
+
+
+
+# #두 배열 원소 교체문제
+# n,k=map(int,input().split())
+# print(f'{n}개의 원소 입력 {k}번 바꾸기 수행')
+# b=[0]*n
+# a=[0]*n
+# print('초기화A->',a)
+# print('초기화B->',b)
+
+# for i in range(n):
+#   a[i]=int(input(f'입력a{i+1} : '))
+
+# for i in range(n):
+#   b[i]=int(input(f'입력b{i+1} : '))
+
+
+# print('A배열 ->',a)
+# print('B배열 ->',b)
+
+# a.sort()
+# b.sort(reverse=True)
+
+
+# for i in range(k):
+#   if a[i]<b[i]:
+#     a[i],b[i]=b[i],a[i]
+#   else:
+#     break
+
+# print(sum(a))
+
+
+
+
+
+
+
+
+
+'''
+#계수 정렬 소스코드
+
+array=[7,5,9,0,3,1,6,2,9,1,4,8,0,5,2]
+#모든 범위를 포함하는 리스트 선언(모든 값은 0으로 초기화)
+count=[0]*(max(array)+1)
+
+for i in range(len(array)):
+  count[array[i]] +=1 # 각 데이터에 해당하는 인덱스의 값 증가
+
+
+for i in range(len(count)):
+  for j in range(count[i]):
+      print(i, end=' ')
+
+'''
 
 
 '''
@@ -54,7 +147,7 @@ dfs(graph,1,visited)
 
 
 '''
-'
+
 
 
 
