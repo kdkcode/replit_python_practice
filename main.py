@@ -1,3 +1,59 @@
+
+#떡볶이 떡 만들기
+#해설
+n,m = list(map(int,input().split(' ')))
+array = list(map(int,input().split()))
+
+start=0
+end=max(array)
+
+result=0
+while(start<=end):
+  total=0
+  mid=(start+end)//2
+  for x in array:
+    if x>mid:
+      total +=x-mid
+
+  if total<m:
+    end=mid-1
+
+  else:
+    result = mid
+    start = mid+1
+
+print(result)
+
+
+
+
+
+
+
+
+
+#내풀이
+# num,length=map(int,input().split())
+
+
+
+# rice_cake=[]
+# n=0
+# for i in range(0,num):
+#   n=int(input())
+#   rice_cake.append(n)
+
+
+# rice_cake.sort()
+# 내가 풀다가 만 코드
+
+
+
+#bisect_left(a,x):정렬된 순서를 유지하면서 배열 a에 x를 삽입할 가장 왼쪽 인덱스를 반환
+#bisect_right(a,x):정렬된 순서를 유지하면서 배열 a에 x를 삽입할 가장 오른쪽 인덱스를 반환
+
+
+'''
 #이진탐색알고리즘
 #순차탐색 : 리스트 안에 있는 특정한 데이터를 찾기 위해 앞에서부터 확인
 #이진탐색 : 탐색 범위를 절반씩 좁혀가며 데이터를 탐색하는 방법
@@ -30,7 +86,7 @@ else:
   print(result+1)
 
 
-
+'''
 
 
 
