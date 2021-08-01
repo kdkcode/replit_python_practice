@@ -1,24 +1,91 @@
-#정렬된 배열에서 특정 수의 개수 구하기
-
-#해설
-from bisect import bisect_left, bisect_right
-
-def count_by_range(array,left_value, right_value):
-  right_index = bisect_right(array, right_value)
-  left_index = bisect_left(array, left_value)
-  return right_index - left_index
 
 
-n, x = map(int, input().split())
-array = list(map(int,input().split()))
 
 
-count = count_by_range(array,x,x)
 
-if count == 0:
-  print(-1)
-else:
-  print(count)
+#피보나치 수열
+
+'''
+메모이제이션: 다이나믹 프로그래밍 구현 방법 중 하나
+한번 계산한 결과를 메모리 공간에 메모하는 기법
+-> 같은 문제를 다시 호출하면 메모했던 결과를 그대로 가져옴
+
+탑다운(메모이제이션) 방식 -> 하향식
+보텀업 방식 --> 상향식
+결과 저장용 리스트 -> DP 테이블
+메모이제이션 ->이전에 계산된 결과를 일시적으로 기록해 놓은 넓은 개념
+
+'''
+
+#보텀업
+# d=[0]*100
+
+# d[1]=1
+# d[2]=1
+# n=99
+
+# for i in range(3,n+1):
+#   d[i] = d[i-1] + d[i-2]
+
+# print(d[n])
+
+
+#탑다운
+
+# d=[0]*100
+
+# def fibo(x):
+
+#   if x==1 or x==2:
+#     return 1
+
+#   if d[x] !=0:
+#     return d[x]
+  
+#   d[x] = fibo(x-1) + fibo(x-2)
+#   return d[x]
+
+
+# print(fibo(99))
+
+
+
+
+
+#2 일반
+# def fibo(x):
+#   if x==1 or x==2:
+#     return 1
+#   return fibo(x-1)+fibo(x-2)
+
+# print(fibo(4))
+
+
+
+
+#-------------------up -다이나믹 프로그래밍----- up---------------
+
+# #정렬된 배열에서 특정 수의 개수 구하기
+
+# #해설
+# from bisect import bisect_left, bisect_right
+
+# def count_by_range(array,left_value, right_value):
+#   right_index = bisect_right(array, right_value)
+#   left_index = bisect_left(array, left_value)
+#   return right_index - left_index
+
+
+# n, x = map(int, input().split())
+# array = list(map(int,input().split()))
+
+
+# count = count_by_range(array,x,x)
+
+# if count == 0:
+#   print(-1)
+# else:
+#   print(count)
 
 
 
