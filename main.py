@@ -1,28 +1,90 @@
+#정렬된 배열에서 특정 수의 개수 구하기
 
-#떡볶이 떡 만들기
 #해설
-n,m = list(map(int,input().split(' ')))
+from bisect import bisect_left, bisect_right
+
+def count_by_range(array,left_value, right_value):
+  right_index = bisect_right(array, right_value)
+  left_index = bisect_left(array, left_value)
+  return right_index - left_index
+
+
+n, x = map(int, input().split())
 array = list(map(int,input().split()))
 
-start=0
-end=max(array)
 
-result=0
-while(start<=end):
-  total=0
-  mid=(start+end)//2
-  for x in array:
-    if x>mid:
-      total +=x-mid
+count = count_by_range(array,x,x)
 
-  if total<m:
-    end=mid-1
+if count == 0:
+  print(-1)
+else:
+  print(count)
 
-  else:
-    result = mid
-    start = mid+1
 
-print(result)
+
+
+
+
+
+
+#내 풀이
+# num,m = list(map(int,input().split(' ')))
+
+# array=[]
+# n=0
+# for i in range(0,num):
+#   n=int(input())
+#   array.append(n)
+
+# array.sort()
+
+# def search(array,num,m):
+
+#   if m not in array:
+#     return print(-1)
+
+
+#   if m in array:
+#     count=0
+#     for array_list in array:
+      
+#       if m==array_list:
+#         count=count+1
+
+  
+#   return print(count)
+    
+# search(array,num,m)
+
+
+
+
+
+
+#떡볶이 떡 만들기
+# #해설
+# n,m = list(map(int,input().split(' ')))
+# array = list(map(int,input().split()))
+
+# start=0
+# end=max(array)
+
+# result=0
+# while(start<=end):
+#   total=0
+#   mid=(start+end)//2
+#   for x in array:
+#     if x>mid:
+#       total +=x-mid
+
+#   if total<m:
+#     end=mid-1
+
+#   else:
+#     result = mid
+#     start = mid+1
+
+# print(result)
 
 
 
