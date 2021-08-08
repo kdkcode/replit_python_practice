@@ -1,24 +1,85 @@
-#개미전사
+#1로 만들기
 
-#답안
+# --해설--
 
-n=int(input('식량창고 갯수 입력: '))
-array = list(map(int,input().split()))
+x=int(input())
+
+d=[0]*3001
+
+for i in range(2,x+1):
+  d[i] = d[i-1] +1
+
+  if i%2 ==0:
+    d[i] = min(d[i],d[i//2]+1)
+
+  if i%3 ==0:
+    d[i] = min(d[i],d[i//3]+1)
+  
+  if i%5 ==0:
+    d[i] = min(d[i],d[i//5]+1)
+
+print(d[x])
 
 
-d=[0]*100
-
-d[0]=array[0]
-d[1]=max(array[0],array[1])
-for i in range(2,n):
-  d[i] = max(d[i-1],d[i-2]+array[i])
-
-
-print(d[n-1])
 
 
 
 
+
+#내 답 <- 걍 틀림
+# n=int(input('숫자 입력: '))
+# count =0
+
+# def make_one(n,count):
+#   if n%5==0:
+#     n=n//5
+#     count=+1
+#     return make_one(n,count)
+
+#   if n%3==0:
+#     n=n//3
+#     count=+1
+#     return make_one(n,count)
+
+#   if n%2==0:
+#     n=n//2
+#     count=+1
+#     return make_one(n,count)
+  
+#   if n%5 !=0 or n%3 !=0 or n%2 !=0:
+#     n=n-1
+#     count=+1
+#     return make_one(n,count)
+
+#   if n==1:
+#     print(n,count)
+#     return True
+    
+
+
+# make_one(n,count)
+
+
+
+#-------------------------------------------------#
+
+# #개미전사
+
+# #답안
+
+# n=int(input('식량창고 갯수 입력: '))
+# array = list(map(int,input().split()))
+
+
+# d=[0]*100
+
+# d[0]=array[0]
+# d[1]=max(array[0],array[1])
+# for i in range(2,n):
+#   d[i] = max(d[i-1],d[i-2]+array[i])
+
+
+# print(d[n-1])
 
 
 
